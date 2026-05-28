@@ -1,9 +1,10 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AAA Lmt - Carwash On Spot</title>
+<title>AAA Ltd - Carwash On Spot</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
@@ -18,7 +19,7 @@ scroll-behavior:smooth;
 }
 
 body{
-background:#f8f9fb;
+background:#ffffff;
 color:#111;
 overflow-x:hidden;
 }
@@ -41,8 +42,8 @@ position:relative;
 header::before{
 content:'';
 position:absolute;
-width:300px;
-height:300px;
+width:350px;
+height:350px;
 background:rgba(0,174,255,0.15);
 border-radius:50%;
 filter:blur(80px);
@@ -50,54 +51,54 @@ animation:float 6s ease-in-out infinite;
 }
 
 @keyframes float{
-0%{transform:translateY(0px);}
-50%{transform:translateY(-30px);}
-100%{transform:translateY(0px);}
+0%{transform:translateY(0);}
+50%{transform:translateY(-25px);}
+100%{transform:translateY(0);}
 }
 
 .hero{
 position:relative;
 z-index:2;
-max-width:800px;
+max-width:850px;
 }
 
 .hero h1{
-font-size:70px;
+font-size:72px;
 font-weight:700;
 color:#111;
 }
 
 .hero h2{
-font-size:28px;
+font-size:30px;
 margin-top:10px;
 color:#00aaff;
-font-weight:500;
+font-weight:600;
 }
 
 .hero p{
 margin-top:20px;
 font-size:18px;
-line-height:1.7;
+line-height:1.8;
 color:#444;
 }
 
 .btn{
 display:inline-block;
 margin-top:35px;
-padding:16px 40px;
+padding:17px 45px;
 background:#00aaff;
 color:white;
 text-decoration:none;
-border-radius:50px;
-font-weight:600;
+border-radius:60px;
 font-size:18px;
+font-weight:600;
 transition:0.3s;
-box-shadow:0 10px 30px rgba(0,174,255,0.3);
+box-shadow:0 10px 30px rgba(0,174,255,0.35);
 }
 
 .btn:hover{
 transform:translateY(-5px);
-background:#0091d9;
+background:#008fd6;
 }
 
 section{
@@ -111,11 +112,12 @@ margin-bottom:60px;
 
 .title h2{
 font-size:42px;
-margin-bottom:10px;
+margin-bottom:12px;
 }
 
 .title p{
 color:#666;
+font-size:17px;
 }
 
 .cards{
@@ -137,12 +139,12 @@ overflow:hidden;
 .card::before{
 content:'';
 position:absolute;
-width:120px;
-height:120px;
+width:140px;
+height:140px;
 background:rgba(0,174,255,0.08);
 border-radius:50%;
-top:-40px;
-right:-40px;
+top:-50px;
+right:-50px;
 }
 
 .card:hover{
@@ -150,7 +152,7 @@ transform:translateY(-10px);
 }
 
 .card h3{
-font-size:26px;
+font-size:28px;
 margin-bottom:15px;
 }
 
@@ -160,7 +162,7 @@ line-height:1.7;
 }
 
 .price{
-font-size:34px;
+font-size:36px;
 font-weight:700;
 margin:20px 0;
 color:#00aaff;
@@ -189,11 +191,16 @@ margin-bottom:15px;
 font-size:22px;
 }
 
+.feature p{
+color:#666;
+line-height:1.7;
+}
+
 .booking{
 background:white;
-border-radius:30px;
 padding:50px;
-box-shadow:0 10px 40px rgba(0,0,0,0.07);
+border-radius:30px;
+box-shadow:0 10px 40px rgba(0,0,0,0.06);
 max-width:700px;
 margin:auto;
 }
@@ -206,9 +213,9 @@ gap:20px;
 
 .booking input,
 .booking select{
-padding:16px;
+padding:17px;
 border:none;
-background:#f3f5f8;
+background:#f4f6f8;
 border-radius:14px;
 font-size:16px;
 outline:none;
@@ -238,6 +245,11 @@ text-align:center;
 margin-top:80px;
 }
 
+footer h2{
+font-size:34px;
+margin-bottom:10px;
+}
+
 .whatsapp{
 position:fixed;
 bottom:25px;
@@ -258,15 +270,9 @@ animation:pulse 2s infinite;
 }
 
 @keyframes pulse{
-0%{
-transform:scale(1);
-}
-50%{
-transform:scale(1.08);
-}
-100%{
-transform:scale(1);
-}
+0%{transform:scale(1);}
+50%{transform:scale(1.08);}
+100%{transform:scale(1);}
 }
 
 .fade{
@@ -283,7 +289,7 @@ transform:translateY(0);
 @media(max-width:768px){
 
 .hero h1{
-font-size:45px;
+font-size:46px;
 }
 
 .hero h2{
@@ -309,15 +315,16 @@ padding:30px;
 
 <div class="hero fade">
 
-<h1>AAA Lmt</h1>
+<h1>AAA Ltd</h1>
 <h2>Carwash On Spot</h2>
 
 <p>
 Professional mobile carwash service all over Malta.
-We come directly to your location on time with premium cleaning products and shine finish.
+We come directly to your location on time with premium shine finish and professional products.
 </p>
 
-<a class="btn" href="https://wa.me/35699941737?text=Hello%20AAA%20Lmt,%20I%20want%20book%20carwash">
+<a class="btn"
+href="https://wa.me/35699941737?text=Hello%20AAA%20Ltd,%20I%20want%20book%20carwash">
 Book On WhatsApp
 </a>
 
@@ -329,7 +336,7 @@ Book On WhatsApp
 
 <div class="title fade">
 <h2>Our Services</h2>
-<p>Premium cleaning with professional shine effects</p>
+<p>Professional cleaning and shine effects</p>
 </div>
 
 <div class="cards">
@@ -338,7 +345,7 @@ Book On WhatsApp
 <h3>Outside Wash</h3>
 <div class="price">€40</div>
 <p>
-Professional exterior foam wash, wheels cleaning, windows and premium shine finish.
+Exterior foam wash, windows cleaning and premium shine finish.
 </p>
 </div>
 
@@ -346,7 +353,7 @@ Professional exterior foam wash, wheels cleaning, windows and premium shine fini
 <h3>Inside + Outside</h3>
 <div class="price">€50</div>
 <p>
-Complete deep cleaning inside and outside including vacuum and interior wipe.
+Complete deep cleaning inside and outside including vacuum service.
 </p>
 </div>
 
@@ -354,7 +361,7 @@ Complete deep cleaning inside and outside including vacuum and interior wipe.
 <h3>Premium Detail</h3>
 <div class="price">Custom</div>
 <p>
-Extra detailing service available depending on vehicle condition and request.
+Extra detailing service available for all types of vehicles.
 </p>
 </div>
 
@@ -366,7 +373,7 @@ Extra detailing service available depending on vehicle condition and request.
 
 <div class="title fade">
 <h2>Why Choose Us</h2>
-<p>Fast, modern and professional mobile carwash</p>
+<p>Fast and professional mobile service</p>
 </div>
 
 <div class="features">
@@ -374,28 +381,28 @@ Extra detailing service available depending on vehicle condition and request.
 <div class="feature fade">
 <h3>We Come To You</h3>
 <p>
-Home, work or parking area — we wash your car directly on spot anywhere in Malta.
+We wash your car directly at your location anywhere in Malta.
 </p>
 </div>
 
 <div class="feature fade">
 <h3>Always On Time</h3>
 <p>
-Fast booking and professional service with scheduled arrival time.
+Professional bookings with fast arrival and reliable service.
 </p>
 </div>
 
 <div class="feature fade">
 <h3>Premium Products</h3>
 <p>
-High quality cleaning materials for deep shine and safe vehicle care.
+Safe and high quality products for maximum shine and protection.
 </p>
 </div>
 
 <div class="feature fade">
 <h3>Cash Or SumUp</h3>
 <p>
-Easy payments available by cash or SumUp machine.
+Easy payment options available after service completion.
 </p>
 </div>
 
@@ -438,8 +445,9 @@ Book Now
 
 <footer>
 
-<h2>AAA Lmt</h2>
+<h2>AAA Ltd</h2>
 <p>Carwash On Spot - All Over Malta</p>
+
 <p style="margin-top:15px;">
 WhatsApp: +356 9994 1737
 </p>
@@ -447,7 +455,7 @@ WhatsApp: +356 9994 1737
 </footer>
 
 <a class="whatsapp"
-href="https://wa.me/35699941737?text=Hello%20AAA%20Lmt,%20I%20want%20book%20carwash">
+href="https://wa.me/35699941737?text=Hello%20AAA%20Ltd,%20I%20want%20book%20carwash">
 ✆
 </a>
 
@@ -479,7 +487,7 @@ let location = document.getElementById('location').value;
 let time = document.getElementById('time').value;
 
 let message =
-`Hello AAA Lmt,
+`Hello AAA Ltd,
 I want book carwash.
 
 Name: ${name}
@@ -497,3 +505,4 @@ window.open(url, '_blank');
 
 </body>
 </html>
+```
