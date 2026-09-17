@@ -1,508 +1,559 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AAA Ltd - Carwash On Spot</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WhatsApp Manager</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
 
-<style>
+    body {
+      background: #f4f6f8;
+      min-height: 100vh;
+    }
 
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:'Poppins',sans-serif;
-scroll-behavior:smooth;
-}
+    /* LOGIN */
 
-body{
-background:#ffffff;
-color:#111;
-overflow-x:hidden;
-}
+    .login-page {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
 
-header{
-height:100vh;
-background:
-linear-gradient(rgba(255,255,255,0.75),rgba(255,255,255,0.75)),
-url('https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=1920');
-background-size:cover;
-background-position:center;
-display:flex;
-align-items:center;
-justify-content:center;
-text-align:center;
-padding:20px;
-position:relative;
-}
+    .login-box {
+      background: white;
+      width: 100%;
+      max-width: 380px;
+      padding: 35px;
+      border-radius: 18px;
+      box-shadow: 0 10px 35px rgba(0,0,0,0.10);
+      text-align: center;
+    }
 
-header::before{
-content:'';
-position:absolute;
-width:350px;
-height:350px;
-background:rgba(0,174,255,0.15);
-border-radius:50%;
-filter:blur(80px);
-animation:float 6s ease-in-out infinite;
-}
+    .logo {
+      font-size: 42px;
+      margin-bottom: 10px;
+    }
 
-@keyframes float{
-0%{transform:translateY(0);}
-50%{transform:translateY(-25px);}
-100%{transform:translateY(0);}
-}
+    .login-box h1 {
+      margin-bottom: 8px;
+    }
 
-.hero{
-position:relative;
-z-index:2;
-max-width:850px;
-}
+    .login-box p {
+      color: #777;
+      margin-bottom: 25px;
+    }
 
-.hero h1{
-font-size:72px;
-font-weight:700;
-color:#111;
-}
+    .login-box input {
+      width: 100%;
+      padding: 14px;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      font-size: 16px;
+      margin-bottom: 12px;
+    }
 
-.hero h2{
-font-size:30px;
-margin-top:10px;
-color:#00aaff;
-font-weight:600;
-}
+    button {
+      border: 0;
+      cursor: pointer;
+      border-radius: 10px;
+      padding: 12px 18px;
+      font-size: 15px;
+      font-weight: bold;
+    }
 
-.hero p{
-margin-top:20px;
-font-size:18px;
-line-height:1.8;
-color:#444;
-}
+    .login-btn {
+      width: 100%;
+      background: #25D366;
+      color: white;
+    }
 
-.btn{
-display:inline-block;
-margin-top:35px;
-padding:17px 45px;
-background:#00aaff;
-color:white;
-text-decoration:none;
-border-radius:60px;
-font-size:18px;
-font-weight:600;
-transition:0.3s;
-box-shadow:0 10px 30px rgba(0,174,255,0.35);
-}
+    .error {
+      color: #e53935;
+      margin-top: 12px;
+      display: none;
+    }
 
-.btn:hover{
-transform:translateY(-5px);
-background:#008fd6;
-}
+    /* DASHBOARD */
 
-section{
-padding:90px 10%;
-}
+    .dashboard {
+      display: none;
+      min-height: 100vh;
+    }
 
-.title{
-text-align:center;
-margin-bottom:60px;
-}
+    header {
+      background: white;
+      padding: 18px 25px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+    }
 
-.title h2{
-font-size:42px;
-margin-bottom:12px;
-}
+    header h1 {
+      font-size: 22px;
+    }
 
-.title p{
-color:#666;
-font-size:17px;
-}
+    .logout {
+      background: #eee;
+      color: #333;
+    }
 
-.cards{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-gap:30px;
-}
+    .container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 30px 20px;
+    }
 
-.card{
-background:white;
-padding:40px 30px;
-border-radius:25px;
-box-shadow:0 10px 30px rgba(0,0,0,0.06);
-transition:0.4s;
-position:relative;
-overflow:hidden;
-}
+    .welcome {
+      margin-bottom: 25px;
+    }
 
-.card::before{
-content:'';
-position:absolute;
-width:140px;
-height:140px;
-background:rgba(0,174,255,0.08);
-border-radius:50%;
-top:-50px;
-right:-50px;
-}
+    .welcome h2 {
+      margin-bottom: 6px;
+    }
 
-.card:hover{
-transform:translateY(-10px);
-}
+    .welcome p {
+      color: #777;
+    }
 
-.card h3{
-font-size:28px;
-margin-bottom:15px;
-}
+    .accounts {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+    }
 
-.card p{
-color:#666;
-line-height:1.7;
-}
+    .account {
+      background: white;
+      padding: 22px;
+      border-radius: 16px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.07);
+    }
 
-.price{
-font-size:36px;
-font-weight:700;
-margin:20px 0;
-color:#00aaff;
-}
+    .account-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+    }
 
-.features{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:30px;
-}
+    .account-name {
+      font-size: 18px;
+      font-weight: bold;
+    }
 
-.feature{
-background:white;
-padding:35px;
-border-radius:20px;
-box-shadow:0 10px 30px rgba(0,0,0,0.05);
-transition:0.3s;
-}
+    .status {
+      font-size: 13px;
+      padding: 6px 9px;
+      border-radius: 20px;
+    }
 
-.feature:hover{
-transform:scale(1.03);
-}
+    .offline {
+      background: #ffebee;
+      color: #d32f2f;
+    }
 
-.feature h3{
-margin-bottom:15px;
-font-size:22px;
-}
+    .online {
+      background: #e8f5e9;
+      color: #2e7d32;
+    }
 
-.feature p{
-color:#666;
-line-height:1.7;
-}
+    .connect {
+      width: 100%;
+      background: #25D366;
+      color: white;
+    }
 
-.booking{
-background:white;
-padding:50px;
-border-radius:30px;
-box-shadow:0 10px 40px rgba(0,0,0,0.06);
-max-width:700px;
-margin:auto;
-}
+    .qr {
+      display: none;
+      text-align: center;
+      margin-top: 15px;
+      padding: 20px;
+      background: #f7f7f7;
+      border-radius: 12px;
+    }
 
-.booking form{
-display:flex;
-flex-direction:column;
-gap:20px;
-}
+    .qr-box {
+      width: 150px;
+      height: 150px;
+      background:
+        linear-gradient(90deg, #000 10px, transparent 10px) 0 0/30px 30px,
+        linear-gradient(#000 10px, transparent 10px) 0 0/30px 30px,
+        white;
+      margin: auto;
+      border: 10px solid white;
+    }
 
-.booking input,
-.booking select{
-padding:17px;
-border:none;
-background:#f4f6f8;
-border-radius:14px;
-font-size:16px;
-outline:none;
-}
+    .qr p {
+      margin-top: 12px;
+      color: #666;
+      font-size: 13px;
+    }
 
-.booking button{
-padding:18px;
-border:none;
-background:#00aaff;
-color:white;
-font-size:18px;
-font-weight:600;
-border-radius:14px;
-cursor:pointer;
-transition:0.3s;
-}
+    @media (max-width: 600px) {
+      header {
+        padding: 15px;
+      }
 
-.booking button:hover{
-background:#008ed3;
-}
+      .container {
+        padding: 20px 15px;
+      }
 
-footer{
-background:#111;
-color:white;
-padding:50px 20px;
-text-align:center;
-margin-top:80px;
-}
-
-footer h2{
-font-size:34px;
-margin-bottom:10px;
-}
-
-.whatsapp{
-position:fixed;
-bottom:25px;
-right:25px;
-width:70px;
-height:70px;
-background:#25D366;
-border-radius:50%;
-display:flex;
-align-items:center;
-justify-content:center;
-font-size:34px;
-color:white;
-text-decoration:none;
-box-shadow:0 10px 30px rgba(37,211,102,0.4);
-z-index:999;
-animation:pulse 2s infinite;
-}
-
-@keyframes pulse{
-0%{transform:scale(1);}
-50%{transform:scale(1.08);}
-100%{transform:scale(1);}
-}
-
-.fade{
-opacity:0;
-transform:translateY(40px);
-transition:1s;
-}
-
-.fade.active{
-opacity:1;
-transform:translateY(0);
-}
-
-@media(max-width:768px){
-
-.hero h1{
-font-size:46px;
-}
-
-.hero h2{
-font-size:22px;
-}
-
-section{
-padding:70px 6%;
-}
-
-.booking{
-padding:30px;
-}
-
-}
-
-</style>
+      .login-box {
+        padding: 25px;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-<header>
+  <!-- LOGIN -->
 
-<div class="hero fade">
+  <div class="login-page" id="loginPage">
 
-<h1>AAA Ltd</h1>
-<h2>Carwash On Spot</h2>
+    <div class="login-box">
 
-<p>
-Professional mobile carwash service all over Malta.
-We come directly to your location on time with premium shine finish and professional products.
-</p>
+      <div class="logo">💬</div>
 
-<a class="btn"
-href="https://wa.me/35699941737?text=Hello%20AAA%20Ltd,%20I%20want%20book%20carwash">
-Book On WhatsApp
-</a>
+      <h1>WhatsApp Manager</h1>
 
-</div>
+      <p>Enter your password to continue</p>
 
-</header>
+      <input
+        type="password"
+        id="password"
+        placeholder="Password"
+        onkeydown="if(event.key === 'Enter') login()"
+      >
 
-<section>
+      <button class="login-btn" onclick="login()">
+        LOGIN
+      </button>
 
-<div class="title fade">
-<h2>Our Services</h2>
-<p>Professional cleaning and shine effects</p>
-</div>
+      <div class="error" id="error">
+        Incorrect password
+      </div>
 
-<div class="cards">
+    </div>
 
-<div class="card fade">
-<h3>Outside Wash</h3>
-<div class="price">€40</div>
-<p>
-Exterior foam wash, windows cleaning and premium shine finish.
-</p>
-</div>
+  </div>
 
-<div class="card fade">
-<h3>Inside + Outside</h3>
-<div class="price">€50</div>
-<p>
-Complete deep cleaning inside and outside including vacuum service.
-</p>
-</div>
 
-<div class="card fade">
-<h3>Premium Detail</h3>
-<div class="price">Custom</div>
-<p>
-Extra detailing service available for all types of vehicles.
-</p>
-</div>
+  <!-- DASHBOARD -->
 
-</div>
+  <div class="dashboard" id="dashboard">
 
-</section>
+    <header>
 
-<section>
+      <h1>💬 WhatsApp Manager</h1>
 
-<div class="title fade">
-<h2>Why Choose Us</h2>
-<p>Fast and professional mobile service</p>
-</div>
+      <button class="logout" onclick="logout()">
+        Logout
+      </button>
 
-<div class="features">
+    </header>
 
-<div class="feature fade">
-<h3>We Come To You</h3>
-<p>
-We wash your car directly at your location anywhere in Malta.
-</p>
-</div>
 
-<div class="feature fade">
-<h3>Always On Time</h3>
-<p>
-Professional bookings with fast arrival and reliable service.
-</p>
-</div>
+    <div class="container">
 
-<div class="feature fade">
-<h3>Premium Products</h3>
-<p>
-Safe and high quality products for maximum shine and protection.
-</p>
-</div>
+      <div class="welcome">
 
-<div class="feature fade">
-<h3>Cash Or SumUp</h3>
-<p>
-Easy payment options available after service completion.
-</p>
-</div>
+        <h2>WhatsApp Accounts</h2>
 
-</div>
+        <p>Connect and manage your 5 WhatsApp accounts.</p>
 
-</section>
+      </div>
 
-<section>
 
-<div class="title fade">
-<h2>Book Your Carwash</h2>
-<p>Send your booking directly to WhatsApp</p>
-</div>
+      <div class="accounts">
 
-<div class="booking fade">
 
-<form id="bookingForm">
+        <!-- ACCOUNT 1 -->
 
-<input type="text" id="name" placeholder="Your Name" required>
+        <div class="account">
 
-<select id="service">
-<option>Outside Wash €40</option>
-<option>Inside + Outside €50</option>
-<option>Premium Detail</option>
-</select>
+          <div class="account-top">
 
-<input type="text" id="location" placeholder="Your Location" required>
+            <div class="account-name">
+              WhatsApp 1
+            </div>
 
-<input type="time" id="time" required>
+            <div class="status offline" id="status1">
+              ● Disconnected
+            </div>
 
-<button type="submit">
-Book Now
-</button>
+          </div>
 
-</form>
+          <button
+            class="connect"
+            onclick="connectWhatsApp(1)"
+          >
+            Connect WhatsApp
+          </button>
 
-</div>
+          <div class="qr" id="qr1">
 
-</section>
+            <div class="qr-box"></div>
 
-<footer>
+            <p>
+              Scan this QR code with WhatsApp
+            </p>
 
-<h2>AAA Ltd</h2>
-<p>Carwash On Spot - All Over Malta</p>
+          </div>
 
-<p style="margin-top:15px;">
-WhatsApp: +356 9994 1737
-</p>
+        </div>
 
-</footer>
 
-<a class="whatsapp"
-href="https://wa.me/35699941737?text=Hello%20AAA%20Ltd,%20I%20want%20book%20carwash">
-✆
-</a>
+        <!-- ACCOUNT 2 -->
 
-<script>
+        <div class="account">
 
-const fades = document.querySelectorAll('.fade');
+          <div class="account-top">
 
-window.addEventListener('scroll', () => {
+            <div class="account-name">
+              WhatsApp 2
+            </div>
 
-fades.forEach(fade => {
+            <div class="status offline" id="status2">
+              ● Disconnected
+            </div>
 
-const top = fade.getBoundingClientRect().top;
+          </div>
 
-if(top < window.innerHeight - 100){
-fade.classList.add('active');
-}
+          <button
+            class="connect"
+            onclick="connectWhatsApp(2)"
+          >
+            Connect WhatsApp
+          </button>
 
-});
+          <div class="qr" id="qr2">
 
-});
+            <div class="qr-box"></div>
 
-document.getElementById('bookingForm').addEventListener('submit', function(e){
+            <p>
+              Scan this QR code with WhatsApp
+            </p>
 
-e.preventDefault();
+          </div>
 
-let name = document.getElementById('name').value;
-let service = document.getElementById('service').value;
-let location = document.getElementById('location').value;
-let time = document.getElementById('time').value;
+        </div>
 
-let message =
-`Hello AAA Ltd,
-I want book carwash.
 
-Name: ${name}
-Service: ${service}
-Location: ${location}
-Time: ${time}`;
+        <!-- ACCOUNT 3 -->
 
-let url = `https://wa.me/35699941737?text=${encodeURIComponent(message)}`;
+        <div class="account">
 
-window.open(url, '_blank');
+          <div class="account-top">
 
-});
+            <div class="account-name">
+              WhatsApp 3
+            </div>
 
-</script>
+            <div class="status offline" id="status3">
+              ● Disconnected
+            </div>
+
+          </div>
+
+          <button
+            class="connect"
+            onclick="connectWhatsApp(3)"
+          >
+            Connect WhatsApp
+          </button>
+
+          <div class="qr" id="qr3">
+
+            <div class="qr-box"></div>
+
+            <p>
+              Scan this QR code with WhatsApp
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <!-- ACCOUNT 4 -->
+
+        <div class="account">
+
+          <div class="account-top">
+
+            <div class="account-name">
+              WhatsApp 4
+            </div>
+
+            <div class="status offline" id="status4">
+              ● Disconnected
+            </div>
+
+          </div>
+
+          <button
+            class="connect"
+            onclick="connectWhatsApp(4)"
+          >
+            Connect WhatsApp
+          </button>
+
+          <div class="qr" id="qr4">
+
+            <div class="qr-box"></div>
+
+            <p>
+              Scan this QR code with WhatsApp
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <!-- ACCOUNT 5 -->
+
+        <div class="account">
+
+          <div class="account-top">
+
+            <div class="account-name">
+              WhatsApp 5
+            </div>
+
+            <div class="status offline" id="status5">
+              ● Disconnected
+            </div>
+
+          </div>
+
+          <button
+            class="connect"
+            onclick="connectWhatsApp(5)"
+          >
+            Connect WhatsApp
+          </button>
+
+          <div class="qr" id="qr5">
+
+            <div class="qr-box"></div>
+
+            <p>
+              Scan this QR code with WhatsApp
+            </p>
+
+          </div>
+
+        </div>
+
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <script>
+
+    /*
+      DEMO PASSWORD
+
+      Change this before using it.
+
+      IMPORTANT:
+      This password is only suitable for a front-end demo.
+      A real password must be checked by the backend.
+    */
+
+    const PASSWORD = "123456";
+
+
+    function login() {
+
+      const password =
+        document.getElementById("password").value;
+
+      if (password === PASSWORD) {
+
+        document.getElementById("loginPage").style.display = "none";
+
+        document.getElementById("dashboard").style.display = "block";
+
+        document.getElementById("error").style.display = "none";
+
+      } else {
+
+        document.getElementById("error").style.display = "block";
+
+      }
+
+    }
+
+
+    function logout() {
+
+      document.getElementById("dashboard").style.display = "none";
+
+      document.getElementById("loginPage").style.display = "flex";
+
+      document.getElementById("password").value = "";
+
+    }
+
+
+    function connectWhatsApp(number) {
+
+      const qr =
+        document.getElementById("qr" + number);
+
+      const status =
+        document.getElementById("status" + number);
+
+
+      if (qr.style.display === "block") {
+
+        qr.style.display = "none";
+
+        return;
+
+      }
+
+
+      qr.style.display = "block";
+
+
+      /*
+        REAL WHATSAPP CONNECTION
+
+        This is where the website will communicate
+        with your Node.js backend.
+
+        Example:
+
+        fetch("/api/whatsapp/" + number + "/connect")
+
+        The backend would then create the WhatsApp
+        Web session and return the real QR code.
+      */
+
+      console.log(
+        "Connecting WhatsApp account " + number
+      );
+
+    }
+
+  </script>
 
 </body>
 </html>
-```
