@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,754 +9,160 @@
 <style>
 * {
     box-sizing: border-box;
-    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
 }
 
 body {
-    margin: 0;
-    background: #f4f6f8;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f3f5f8;
+    color: #17202a;
+    min-height: 100vh;
 }
 
 /* LOGIN */
-
 #loginPage {
     min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
+    padding: 20px;
+    background: linear-gradient(135deg, #0b141a, #17252d);
 }
 
 .login-box {
-    width: 360px;
-    max-width: 90%;
+    width: 100%;
+    max-width: 420px;
     background: white;
-    padding: 35px;
-    border-radius: 20px;
-    box-shadow: 0 10px 40px rgba(0,0,0,.12);
+    border-radius: 22px;
+    padding: 38px;
+    box-shadow: 0 25px 70px rgba(0,0,0,.3);
     text-align: center;
 }
 
 .logo {
-    font-size: 45px;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background: #25d366;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+    font-size: 32px;
+    font-weight: bold;
 }
 
 .login-box h1 {
-    margin: 10px 0;
+    font-size: 27px;
+    margin-bottom: 8px;
 }
 
 .login-box p {
-    color: #777;
+    color: #667781;
+    margin-bottom: 25px;
 }
 
-.login-box input {
+input {
     width: 100%;
-    padding: 14px;
-    margin: 15px 0;
-    border: 1px solid #ddd;
-    border-radius: 10px;
+    border: 1px solid #d7dde2;
+    border-radius: 12px;
+    padding: 15px;
     font-size: 16px;
+    outline: none;
+    margin-bottom: 12px;
+}
+
+input:focus {
+    border-color: #25d366;
+}
+
+button {
+    border: 0;
+    cursor: pointer;
+    border-radius: 10px;
+    padding: 12px 18px;
+    font-weight: 700;
+    font-size: 14px;
+    transition: .2s;
+}
+
+button:hover {
+    transform: translateY(-1px);
 }
 
 .login-btn {
     width: 100%;
-    padding: 14px;
-    border: 0;
-    border-radius: 10px;
-    background: #25D366;
+    background: #25d366;
     color: white;
-    font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
+    padding: 15px;
 }
 
-#error {
-    display: none;
-    color: red;
+.login-btn:hover {
+    background: #1ebe5d;
+}
+
+.error {
+    color: #d93025;
+    font-size: 14px;
     margin-top: 12px;
+    display: none;
 }
 
 /* DASHBOARD */
-
 #dashboard {
     display: none;
 }
 
 header {
-    background: white;
+    background: #0b141a;
+    color: white;
     padding: 18px 25px;
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    box-shadow: 0 2px 10px rgba(0,0,0,.07);
+    justify-content: space-between;
+    gap: 15px;
+    position: sticky;
+    top: 0;
+    z-index: 10;
 }
 
-header h2 {
-    margin: 0;
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+}
+
+.header-logo {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: #25d366;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+header h1 {
+    font-size: 20px;
+}
+
+.header-subtitle {
+    color: #aebac1;
+    font-size: 12px;
+    margin-top: 3px;
 }
 
 .logout {
-    border: 0;
-    background: #eee;
-    padding: 10px 15px;
-    border-radius: 9px;
-    cursor: pointer;
-}
-
-.container {
-    max-width: 1100px;
-    margin: auto;
-    padding: 30px 20px;
-}
-
-.accounts {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 20px;
-    margin-top: 25px;
-}
-
-.account {
-    background: white;
-    padding: 22px;
-    border-radius: 17px;
-    box-shadow: 0 5px 20px rgba(0,0,0,.07);
-}
-
-.account-top {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
-}
-
-.account-name {
-    font-size: 18px;
-    font-weight: bold;
-}
-
-.status {
-    font-size: 12px;
-    padding: 6px 9px;
-    border-radius: 20px;
-}
-
-.offline {
-    background: #ffebee;
-    color: #c62828;
-}
-
-.waiting {
-    background: #fff3cd;
-    color: #856404;
-}
-
-.online {
-    background: #e8f5e9;
-    color: #2e7d32;
-}
-
-.connect {
-    width: 100%;
-    padding: 13px;
-    border: 0;
-    border-radius: 10px;
-    background: #25D366;
+    background: #26343c;
     color: white;
-    font-weight: bold;
-    cursor: pointer;
 }
 
-.disconnect {
-    width: 100%;
-    padding: 13px;
-    margin-top: 8px;
-    border: 0;
-    border-radius: 10px;
-    background: #eee;
-    cursor: pointer;
+.logout:hover {
+    background: #34454e;
 }
 
-.qr {
-    display: none;
-    text-align: center;
-    margin-top: 20px;
-    padding: 15px;
-    background: #f7f7f7;
-    border-radius: 12px;
-}
-
-.qr img {
-    width: 250px;
-    max-width: 100%;
-}
-
-.qr p {
-    color: #666;
-    font-size: 13px;
-    line-height: 1.5;
-}
-
-@media(max-width:600px) {
-    header {
-        padding: 15px;
-    }
-
-    .container {
-        padding: 20px 15px;
-    }
-}
-</style>
-</head>
-
-<body>
-
-<!-- LOGIN -->
-
-<div id="loginPage">
-
-    <div class="login-box">
-
-        <div class="logo">💬</div>
-
-        <h1>WhatsApp Manager</h1>
-
-        <p>Enter your password</p>
-
-        <input
-            id="password"
-            type="password"
-            placeholder="Password"
-            onkeydown="if(event.key==='Enter') login()"
-        >
-
-        <button class="login-btn" onclick="login()">
-            LOGIN
-        </button>
-
-        <div id="error">
-            Incorrect password
-        </div>
-
-    </div>
-
-</div>
-
-
-<!-- DASHBOARD -->
-
-<div id="dashboard">
-
-<header>
-
-    <h2>💬 WhatsApp Manager</h2>
-
-    <button class="logout" onclick="logout()">
-        Logout
-    </button>
-
-</header>
-
-
-<div class="container">
-
-    <h2>WhatsApp Accounts</h2>
-
-    <p>
-        Connect up to 5 WhatsApp accounts.
-    </p>
-
-    <div class="accounts" id="accounts"></div>
-
-</div>
-
-</div>
-
-
-<script>
-
-/*
-========================================
-BACKEND ADDRESS
-========================================
-
-For testing on the same computer:
-
-http://localhost:3000
-
-When your backend is online, change this to
-your server address.
-
-Example:
-
-https://your-server.com
-*/
-
-const API = "http://localhost:3000";
-
-
-/*
-========================================
-CREATE 5 ACCOUNTS
-========================================
-*/
-
-for (let i = 1; i <= 5; i++) {
-
-    createAccount(i);
-
-}
-
-
-/*
-========================================
-LOGIN
-========================================
-*/
-
-async function login() {
-
-    const password =
-        document.getElementById("password").value;
-
-    try {
-
-        const response = await fetch(
-            API + "/api/login",
-            {
-                method: "POST",
-
-                headers: {
-                    "Content-Type": "application/json"
-                },
-
-                body: JSON.stringify({
-                    password: password
-                })
-            }
-        );
-
-        const data = await response.json();
-
-        if (!data.success) {
-
-            document.getElementById(
-                "error"
-            ).style.display = "block";
-
-            return;
-        }
-
-        document.getElementById(
-            "loginPage"
-        ).style.display = "none";
-
-        document.getElementById(
-            "dashboard"
-        ).style.display = "block";
-
-        checkAccounts();
-
-    } catch (error) {
-
-        alert(
-            "Backend server is not connected."
-        );
-
-        console.log(error);
-
-    }
-}
-
-
-/*
-========================================
-LOGOUT
-========================================
-*/
-
-function logout() {
-
-    location.reload();
-
-}
-
-
-/*
-========================================
-CREATE ACCOUNT CARD
-========================================
-*/
-
-function createAccount(number) {
-
-    const container =
-        document.getElementById("accounts");
-
-    container.innerHTML += `
-
-        <div class="account">
-
-            <div class="account-top">
-
-                <div class="account-name">
-                    WhatsApp ${number}
-                </div>
-
-                <div
-                    id="status${number}"
-                    class="status offline">
-                    ● Disconnected
-                </div>
-
-            </div>
-
-            <button
-                id="connect${number}"
-                class="connect"
-                onclick="connectWhatsApp(${number})">
-
-                Connect WhatsApp
-
-            </button>
-
-            <button
-                id="disconnect${number}"
-                class="disconnect"
-                style="display:none"
-                onclick="disconnectWhatsApp(${number})">
-
-                Disconnect
-
-            </button>
-
-            <div
-                id="qr${number}"
-                class="qr">
-
-                <img
-                    id="qrImage${number}"
-                    alt="WhatsApp QR Code">
-
-                <p>
-                    Open WhatsApp on your phone.<br>
-                    Go to Linked Devices → Link a Device
-                    and scan this QR code.
-                </p>
-
-            </div>
-
-        </div>
-    `;
-}
-
-
-/*
-========================================
-CONNECT WHATSAPP
-========================================
-*/
-
-async function connectWhatsApp(number) {
-
-    setStatus(
-        number,
-        "CONNECTING"
-    );
-
-    try {
-
-        await fetch(
-            API +
-            "/api/accounts/" +
-            number +
-            "/connect",
-            {
-                method: "POST"
-            }
-        );
-
-        watchAccount(number);
-
-    } catch (error) {
-
-        console.log(error);
-
-        setStatus(
-            number,
-            "DISCONNECTED"
-        );
-
-        alert(
-            "Cannot connect to backend."
-        );
-
-    }
-}
-
-
-/*
-========================================
-WATCH ACCOUNT
-========================================
-*/
-
-function watchAccount(number) {
-
-    const timer = setInterval(
-        async () => {
-
-            try {
-
-                const response =
-                    await fetch(
-                        API +
-                        "/api/accounts/" +
-                        number
-                    );
-
-                const data =
-                    await response.json();
-
-
-                /*
-                REAL QR CODE
-                */
-
-                if (
-                    data.status === "QR_READY"
-                    &&
-                    data.qr
-                ) {
-
-                    document.getElementById(
-                        "qr" + number
-                    ).style.display = "block";
-
-                    document.getElementById(
-                        "qrImage" + number
-                    ).src = data.qr;
-
-                    setStatus(
-                        number,
-                        "QR_READY"
-                    );
-                }
-
-
-                /*
-                CONNECTED
-                */
-
-                if (
-                    data.status === "CONNECTED"
-                ) {
-
-                    clearInterval(timer);
-
-                    document.getElementById(
-                        "qr" + number
-                    ).style.display = "none";
-
-                    setStatus(
-                        number,
-                        "CONNECTED"
-                    );
-                }
-
-
-                /*
-                DISCONNECTED
-                */
-
-                if (
-                    data.status === "DISCONNECTED"
-                    ||
-                    data.status === "AUTH_FAILURE"
-                ) {
-
-                    clearInterval(timer);
-
-                    setStatus(
-                        number,
-                        "DISCONNECTED"
-                    );
-                }
-
-            } catch (error) {
-
-                console.log(error);
-
-            }
-
-        },
-        1500
-    );
-}
-
-
-/*
-========================================
-DISCONNECT
-========================================
-*/
-
-async function disconnectWhatsApp(number) {
-
-    await fetch(
-        API +
-        "/api/accounts/" +
-        number +
-        "/disconnect",
-        {
-            method: "POST"
-        }
-    );
-
-    document.getElementById(
-        "qr" + number
-    ).style.display = "none";
-
-    setStatus(
-        number,
-        "DISCONNECTED"
-    );
-}
-
-
-/*
-========================================
-STATUS
-========================================
-*/
-
-function setStatus(number, status) {
-
-    const element =
-        document.getElementById(
-            "status" + number
-        );
-
-    const connect =
-        document.getElementById(
-            "connect" + number
-        );
-
-    const disconnect =
-        document.getElementById(
-            "disconnect" + number
-        );
-
-
-    element.className = "status";
-
-
-    if (status === "CONNECTED") {
-
-        element.classList.add("online");
-
-        element.innerText =
-            "● Connected";
-
-        connect.style.display = "none";
-
-        disconnect.style.display = "block";
-
-    }
-
-    else if (status === "QR_READY") {
-
-        element.classList.add("waiting");
-
-        element.innerText =
-            "● Scan QR";
-
-        connect.style.display = "none";
-
-        disconnect.style.display = "block";
-
-    }
-
-    else if (status === "CONNECTING") {
-
-        element.classList.add("waiting");
-
-        element.innerText =
-            "● Connecting...";
-
-        connect.style.display = "block";
-
-        disconnect.style.display = "none";
-
-    }
-
-    else {
-
-        element.classList.add("offline");
-
-        element.innerText =
-            "● Disconnected";
-
-        connect.style.display = "block";
-
-        disconnect.style.display = "none";
-
-    }
-}
-
-
-/*
-========================================
-CHECK ALL ACCOUNTS
-========================================
-*/
-
-async function checkAccounts() {
-
-    for (let i = 1; i <= 5; i++) {
-
-        try {
-
-            const response =
-                await fetch(
-                    API +
-                    "/api/accounts/" +
-                    i
-                );
-
-            const data =
-                await response.json();
-
-            setStatus(
-                i,
-                data.status
-            );
-
-            if (
-                data.status === "QR_READY"
-                &&
-                data.qr
-            ) {
-
-                document.getElementById(
-                    "qr" + i
-                ).style.display = "block";
-
-                document.getElementById(
-                    "qrImage" + i
-                ).src = data.qr;
-
-            }
-
-        } catch (error) {
-
-            console.log(error);
-
-        }
-
-    }
-}
-
-</script>
-
-</body>
-</html>
+.conta
+```
