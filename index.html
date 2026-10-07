@@ -3,363 +3,367 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>GreenBox Accessories</title>
+<title>GREENBOX | Premium Accessories</title>
 
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
-
-:root{
-  --bg:#08100b;
-  --card:#111c14;
-  --card2:#16231a;
-  --green:#8cff55;
-  --green2:#b8ff91;
-  --text:#f5f8f4;
-  --muted:#9eaa9f;
-  --border:#26372a;
-}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
 
 body{
-  background:
-    radial-gradient(circle at top,#18341d 0,#08100b 45%);
-  color:var(--text);
-  font-family:Arial,Helvetica,sans-serif;
-}
-
-button{
-  font-family:inherit;
-  cursor:pointer;
+margin:0;
+background:#07100a;
+color:#f5f7f4;
+font-family:Arial,Helvetica,sans-serif
 }
 
 header{
-  position:sticky;
-  top:0;
-  z-index:20;
-  background:rgba(8,16,11,.94);
-  backdrop-filter:blur(15px);
-  border-bottom:1px solid var(--border);
+position:sticky;
+top:0;
+z-index:100;
+background:rgba(7,16,10,.94);
+backdrop-filter:blur(15px);
+border-bottom:1px solid #263729
 }
 
 .nav{
-  max-width:1200px;
-  margin:auto;
-  padding:18px 20px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
+max-width:1250px;
+margin:auto;
+padding:17px 20px;
+display:flex;
+align-items:center;
+justify-content:space-between
 }
 
 .logo{
-  font-size:25px;
-  font-weight:900;
+font-size:25px;
+font-weight:900
 }
 
-.logo span{
-  color:var(--green);
-}
+.logo span{color:#8cff55}
 
-.cartButton{
-  border:0;
-  background:var(--green);
-  color:#08100b;
-  padding:12px 18px;
-  border-radius:30px;
-  font-weight:900;
+.cart{
+border:0;
+background:#8cff55;
+color:#07100a;
+font-weight:900;
+padding:11px 18px;
+border-radius:30px;
+cursor:pointer
 }
 
 .hero{
-  max-width:1200px;
-  margin:auto;
-  padding:75px 20px 45px;
-  text-align:center;
+max-width:1250px;
+margin:auto;
+padding:75px 20px 45px;
+text-align:center
 }
 
-.hero small{
-  color:var(--green);
-  font-weight:bold;
-  letter-spacing:3px;
-  text-transform:uppercase;
+.hero .small{
+color:#8cff55;
+font-size:12px;
+font-weight:900;
+letter-spacing:3px
 }
 
 .hero h1{
-  font-size:clamp(45px,8vw,80px);
-  margin:15px 0;
-  line-height:.95;
+font-size:clamp(45px,8vw,82px);
+line-height:.9;
+letter-spacing:-4px;
+margin:15px 0
 }
 
-.hero h1 span{
-  color:var(--green);
-}
+.hero h1 span{color:#8cff55}
 
 .hero p{
-  color:var(--muted);
-  max-width:650px;
-  margin:auto;
-  line-height:1.6;
-  font-size:17px;
+max-width:680px;
+margin:auto;
+color:#9eaa9f;
+font-size:17px;
+line-height:1.6
 }
 
-.prices{
-  max-width:1200px;
-  margin:auto;
-  padding:10px 20px 30px;
-}
-
-.prices h2{
-  margin-bottom:15px;
+.section{
+max-width:1250px;
+margin:auto;
+padding:20px
 }
 
 .filters{
-  display:flex;
-  gap:8px;
-  flex-wrap:wrap;
+display:flex;
+gap:8px;
+flex-wrap:wrap;
+margin:15px 0 30px
 }
 
 .filter{
-  background:var(--card);
-  border:1px solid var(--border);
-  color:white;
-  padding:9px 14px;
-  border-radius:30px;
+background:#111b13;
+border:1px solid #263729;
+color:white;
+padding:9px 14px;
+border-radius:30px;
+cursor:pointer
 }
 
-.filter.active,
-.filter:hover{
-  background:var(--green);
-  color:#08100b;
-}
-
-.products{
-  max-width:1200px;
-  margin:auto;
-  padding:10px 20px 80px;
+.filter:hover,
+.filter.active{
+background:#8cff55;
+color:#07100a
 }
 
 .grid{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:18px;
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:18px
 }
 
-.offer{
-  background:linear-gradient(145deg,var(--card2),var(--card));
-  border:1px solid var(--border);
-  border-radius:22px;
-  overflow:hidden;
-  transition:.2s;
+.card{
+background:linear-gradient(145deg,#142018,#0d160f);
+border:1px solid #263729;
+border-radius:22px;
+overflow:hidden;
+transition:.2s
 }
 
-.offer:hover{
-  transform:translateY(-4px);
-  border-color:var(--green);
+.card:hover{
+transform:translateY(-5px);
+border-color:#8cff55
 }
 
-.offerImage{
-  height:190px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-  background:
-    radial-gradient(circle,#315b35,#142218 60%,#0b120d);
-  color:#c9e8c3;
-  font-weight:900;
-  letter-spacing:2px;
+.photo{
+height:215px;
+background:#17251a;
+position:relative;
+overflow:hidden
 }
 
-.offerBody{
-  padding:20px;
+.photo img{
+width:100%;
+height:100%;
+object-fit:cover
 }
 
-.tag{
-  color:var(--green);
-  font-size:11px;
-  font-weight:900;
-  letter-spacing:2px;
+.photoFallback{
+position:absolute;
+inset:0;
+display:flex;
+align-items:center;
+justify-content:center;
+font-weight:900;
+font-size:22px;
+letter-spacing:2px;
+color:#bce8b0;
+background:
+radial-gradient(circle at center,#355d39,#152318 60%,#0d150f)
 }
 
-.offer h3{
-  margin:8px 0;
-  font-size:21px;
+.body{
+padding:20px
 }
 
-.offer p{
-  color:var(--muted);
-  line-height:1.5;
-  min-height:50px;
+.offerNo{
+font-size:11px;
+font-weight:900;
+letter-spacing:2px;
+color:#8cff55
+}
+
+.body h3{
+font-size:20px;
+margin:7px 0
+}
+
+.description{
+color:#9eaa9f;
+font-size:14px;
+line-height:1.5;
+min-height:42px
+}
+
+.contents{
+margin:15px 0;
+padding-left:18px;
+color:#cbd3cb;
+font-size:13px;
+line-height:1.7;
+min-height:95px
 }
 
 .priceRow{
-  margin-top:18px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
+display:flex;
+justify-content:space-between;
+align-items:center;
+gap:10px
 }
 
 .price{
-  font-size:27px;
-  font-weight:900;
+font-size:27px;
+font-weight:900
 }
 
 .view{
-  border:0;
-  background:var(--green);
-  color:#08100b;
-  padding:11px 15px;
-  border-radius:12px;
-  font-weight:900;
+border:0;
+background:#8cff55;
+color:#07100a;
+padding:11px 15px;
+border-radius:11px;
+font-weight:900;
+cursor:pointer
 }
 
 .details{
-  max-width:1200px;
-  margin:0 auto 80px;
-  padding:35px 20px;
-  scroll-margin-top:90px;
+max-width:1250px;
+margin:40px auto 80px;
+padding:20px;
+scroll-margin-top:90px
 }
 
-.detailBox{
-  display:none;
-  background:linear-gradient(145deg,#18291b,#0f1711);
-  border:1px solid var(--green);
-  border-radius:25px;
-  padding:30px;
+.detail{
+display:none;
+background:linear-gradient(145deg,#18291b,#0e1710);
+border:1px solid #8cff55;
+border-radius:25px;
+padding:30px
 }
 
-.detailBox.show{
-  display:block;
+.detail.show{display:block}
+
+.detailGrid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:30px
 }
 
-.detailTop{
-  display:flex;
-  justify-content:space-between;
-  gap:20px;
-  align-items:start;
+.detailPhoto{
+height:360px;
+border-radius:18px;
+overflow:hidden;
+background:#17251a
 }
 
-.detailTop h2{
-  font-size:35px;
-  margin:7px 0;
+.detailPhoto img{
+width:100%;
+height:100%;
+object-fit:cover
+}
+
+.detailInfo h2{
+font-size:38px;
+margin:10px 0
 }
 
 .detailPrice{
-  font-size:38px;
-  font-weight:900;
-  color:var(--green);
+font-size:42px;
+font-weight:900;
+color:#8cff55;
+margin:15px 0
 }
 
-.items{
-  margin:25px 0;
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:10px;
+.detailInfo p{
+color:#aeb9ae;
+line-height:1.6
 }
 
-.item{
-  background:#0d160f;
-  border:1px solid var(--border);
-  padding:14px;
-  border-radius:12px;
+.detailItems{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:9px;
+margin:22px 0
+}
+
+.detailItem{
+background:#0a120c;
+border:1px solid #263729;
+padding:13px;
+border-radius:10px
 }
 
 .request{
-  background:var(--green);
-  color:#08100b;
-  border:0;
-  padding:15px 22px;
-  border-radius:14px;
-  font-size:16px;
-  font-weight:900;
+background:#8cff55;
+border:0;
+padding:15px 22px;
+border-radius:13px;
+font-weight:900;
+font-size:16px;
+cursor:pointer
 }
 
 footer{
-  border-top:1px solid var(--border);
-  text-align:center;
-  padding:35px 20px;
-  color:var(--muted);
+border-top:1px solid #263729;
+padding:35px 20px;
+text-align:center;
+color:#89958b
 }
 
 .modal{
-  display:none;
-  position:fixed;
-  z-index:50;
-  inset:0;
-  background:rgba(0,0,0,.78);
-  align-items:center;
-  justify-content:center;
-  padding:20px;
+display:none;
+position:fixed;
+inset:0;
+background:rgba(0,0,0,.8);
+z-index:200;
+align-items:center;
+justify-content:center;
+padding:20px
 }
 
-.modal.show{
-  display:flex;
-}
+.modal.show{display:flex}
 
 .modalBox{
-  width:100%;
-  max-width:500px;
-  background:#111c14;
-  border:1px solid var(--border);
-  border-radius:22px;
-  padding:25px;
+width:100%;
+max-width:500px;
+background:#111b13;
+border:1px solid #263729;
+border-radius:22px;
+padding:25px
 }
 
 .close{
-  float:right;
-  background:none;
-  color:white;
-  border:0;
-  font-size:25px;
+float:right;
+background:none;
+border:0;
+color:white;
+font-size:25px;
+cursor:pointer
 }
 
-.modalBox h2{
-  margin-bottom:8px;
-}
+.modalBox h2{margin-top:5px}
 
 .selected{
-  color:var(--green);
-  margin-bottom:20px;
+color:#8cff55;
+font-weight:bold;
+margin-bottom:20px
 }
 
 input{
-  width:100%;
-  padding:14px;
-  margin:7px 0;
-  background:#09100b;
-  border:1px solid var(--border);
-  border-radius:10px;
-  color:white;
-  font-size:15px;
+width:100%;
+padding:14px;
+margin:7px 0;
+background:#07100a;
+border:1px solid #263729;
+border-radius:10px;
+color:white;
+font-size:15px
 }
 
 .send{
-  width:100%;
-  margin-top:12px;
-  padding:15px;
-  border:0;
-  border-radius:12px;
-  background:var(--green);
-  color:#08100b;
-  font-weight:900;
-  font-size:16px;
+width:100%;
+padding:15px;
+margin-top:12px;
+background:#8cff55;
+border:0;
+border-radius:12px;
+font-weight:900;
+cursor:pointer
 }
 
-@media(max-width:850px){
-  .grid{
-    grid-template-columns:repeat(2,1fr);
-  }
+@media(max-width:900px){
+.grid{grid-template-columns:repeat(2,1fr)}
+.detailGrid{grid-template-columns:1fr}
 }
 
 @media(max-width:600px){
-  .grid{
-    grid-template-columns:1fr;
-  }
-
-  .items{
-    grid-template-columns:1fr;
-  }
-
-  .detailTop{
-    flex-direction:column;
-  }
+.grid{grid-template-columns:1fr}
+.detailItems{grid-template-columns:1fr}
+.hero h1{letter-spacing:-2px}
 }
 </style>
 </head>
@@ -367,369 +371,727 @@ input{
 <body>
 
 <header>
-  <div class="nav">
-    <div class="logo">GREEN<span>BOX</span></div>
-    <button class="cartButton" onclick="openRequest()">
-      Request <span id="requestCount">0</span>
-    </button>
-  </div>
+<div class="nav">
+<div class="logo">GREEN<span>BOX</span></div>
+<button class="cart" onclick="openRequest()">
+REQUEST <span id="count">0</span>
+</button>
+</div>
 </header>
 
 <section class="hero">
-  <small>Accessories only</small>
-  <h1>Choose Your<br><span>Offer</span></h1>
-  <p>
-    Premium legal smoking and lifestyle accessories in simple
-    fixed-price bundles.
-  </p>
+<div class="small">PREMIUM ACCESSORIES</div>
+<h1>Choose Your<br><span>Offer</span></h1>
+<p>
+48 different mixed accessory bundles.
+Choose your price, view the complete contents,
+and request the offer directly.
+</p>
 </section>
 
-<section class="prices">
-  <h2>Choose a price</h2>
+<section class="section">
 
-  <div class="filters">
-    <button class="filter active" onclick="filterOffers('all',this)">All</button>
+<h2>Shop by price</h2>
 
-    <button class="filter" onclick="filterOffers(40,this)">€40</button>
-    <button class="filter" onclick="filterOffers(45,this)">€45</button>
-    <button class="filter" onclick="filterOffers(50,this)">€50</button>
-    <button class="filter" onclick="filterOffers(55,this)">€55</button>
-    <button class="filter" onclick="filterOffers(60,this)">€60</button>
-    <button class="filter" onclick="filterOffers(65,this)">€65</button>
-    <button class="filter" onclick="filterOffers(70,this)">€70</button>
-    <button class="filter" onclick="filterOffers(75,this)">€75</button>
-    <button class="filter" onclick="filterOffers(80,this)">€80</button>
-    <button class="filter" onclick="filterOffers(85,this)">€85</button>
-    <button class="filter" onclick="filterOffers(90,this)">€90</button>
-    <button class="filter" onclick="filterOffers(95,this)">€95</button>
-    <button class="filter" onclick="filterOffers(100,this)">€100</button>
-    <button class="filter" onclick="filterOffers(105,this)">€105</button>
-    <button class="filter" onclick="filterOffers(120,this)">€120</button>
-    <button class="filter" onclick="filterOffers(125,this)">€125</button>
-  </div>
-</section>
+<div class="filters">
+<button class="filter active" onclick="filterPrice('all',this)">ALL</button>
+<button class="filter" onclick="filterPrice(40,this)">€40</button>
+<button class="filter" onclick="filterPrice(45,this)">€45</button>
+<button class="filter" onclick="filterPrice(50,this)">€50</button>
+<button class="filter" onclick="filterPrice(55,this)">€55</button>
+<button class="filter" onclick="filterPrice(60,this)">€60</button>
+<button class="filter" onclick="filterPrice(65,this)">€65</button>
+<button class="filter" onclick="filterPrice(70,this)">€70</button>
+<button class="filter" onclick="filterPrice(75,this)">€75</button>
+<button class="filter" onclick="filterPrice(80,this)">€80</button>
+<button class="filter" onclick="filterPrice(85,this)">€85</button>
+<button class="filter" onclick="filterPrice(90,this)">€90</button>
+<button class="filter" onclick="filterPrice(95,this)">€95</button>
+<button class="filter" onclick="filterPrice(100,this)">€100</button>
+<button class="filter" onclick="filterPrice(105,this)">€105</button>
+<button class="filter" onclick="filterPrice(120,this)">€120</button>
+<button class="filter" onclick="filterPrice(125,this)">€125</button>
+</div>
 
-<section class="products">
-  <div class="grid" id="products"></div>
+<div class="grid" id="products"></div>
+
 </section>
 
 <section class="details" id="details">
-  <div class="detailBox" id="detailBox">
-    <div class="detailTop">
-      <div>
-        <div class="tag" id="detailTag"></div>
-        <h2 id="detailName"></h2>
-        <p id="detailDescription" style="color:#9eaa9f"></p>
-      </div>
+<div class="detail" id="detail">
 
-      <div class="detailPrice" id="detailPrice"></div>
-    </div>
+<div class="detailGrid">
 
-    <div class="items" id="detailItems"></div>
+<div class="detailPhoto">
+<img id="detailImage" src="" alt="Accessory offer">
+</div>
 
-    <button class="request" onclick="openRequest()">
-      Request This Offer
-    </button>
-  </div>
+<div class="detailInfo">
+
+<div class="offerNo" id="detailNo"></div>
+
+<h2 id="detailName"></h2>
+
+<div class="detailPrice" id="detailPrice"></div>
+
+<p id="detailDescription"></p>
+
+<div class="detailItems" id="detailItems"></div>
+
+<button class="request" onclick="openRequest()">
+REQUEST THIS OFFER
+</button>
+
+</div>
+
+</div>
+
+</div>
 </section>
 
 <footer>
-  <p>GREENBOX ACCESSORIES</p>
-  <br>
-  <p>Legal accessories only. Customers are responsible for complying with applicable local laws and age requirements.</p>
+GREENBOX ACCESSORIES<br><br>
+Legal accessories only. Customers are responsible for complying
+with applicable local laws and age requirements.
 </footer>
 
 <div class="modal" id="modal">
-  <div class="modalBox">
 
-    <button class="close" onclick="closeRequest()">×</button>
+<div class="modalBox">
 
-    <h2>Request Offer</h2>
+<button class="close" onclick="closeRequest()">×</button>
 
-    <p class="selected" id="selectedOffer">
-      No offer selected
-    </p>
+<h2>Request Offer</h2>
 
-    <input id="customerName" placeholder="Your name">
+<p class="selected" id="selected"></p>
 
-    <input id="customerPhone" placeholder="WhatsApp number">
+<input id="name" placeholder="Your name">
 
-    <button class="send" onclick="sendWhatsApp()">
-      Send Request on WhatsApp
-    </button>
+<input id="phone" placeholder="WhatsApp number">
 
-  </div>
+<button class="send" onclick="sendRequest()">
+SEND OFFER REQUEST
+</button>
+
+</div>
+
 </div>
 
 <script>
 
-const WHATSAPP_NUMBER = "35600000000";
+/*
+CHANGE THIS TO YOUR WHATSAPP NUMBER
+Example Malta:
+35677038260
+*/
+const WHATSAPP_NUMBER="35600000000";
 
-const prices = [
-  40,45,50,55,60,65,70,75,
-  80,85,90,95,100,105,120,125
+
+const images=[
+"https://images.unsplash.com/photo-1616697130286-2b9a4d4d7b0b?auto=format&fit=crop&w=900&q=80",
+"https://images.unsplash.com/photo-1603909223429-69bb7101f420?auto=format&fit=crop&w=900&q=80",
+"https://images.unsplash.com/photo-1595854341625-f33ee10dbf94?auto=format&fit=crop&w=900&q=80",
+"https://images.unsplash.com/photo-1605647540924-852290f6b0d9?auto=format&fit=crop&w=900&q=80"
 ];
 
-const offerTypes = [
-  {
-    name:"Classic Accessory Set",
-    description:"A balanced mixed accessory bundle.",
-    items:[
-      "Premium grinder",
-      "Rolling tray",
-      "Storage jar",
-      "Rolling papers",
-      "Cleaning accessory"
-    ]
-  },
-  {
-    name:"Travel Accessory Set",
-    description:"A compact selection designed for easy storage and travel.",
-    items:[
-      "Compact grinder",
-      "Travel storage case",
-      "Rolling tray",
-      "Papers",
-      "Cleaning tool"
-    ]
-  },
-  {
-    name:"Premium Accessory Set",
-    description:"A larger premium accessory bundle.",
-    items:[
-      "Premium grinder",
-      "Large storage jar",
-      "Premium rolling tray",
-      "Papers bundle",
-      "Accessory case",
-      "Cleaning accessories"
-    ]
-  }
+
+const offers=[
+
+/* €40 */
+
+{
+price:40,
+name:"Essential Grinder Kit",
+items:["4-piece metal grinder","Rolling tray","Storage jar","Paper pack"],
+desc:"Simple everyday accessory starter bundle."
+},
+
+{
+price:40,
+name:"Pocket Travel Pack",
+items:["Compact grinder","Travel pouch","Glass storage jar","Cleaning brush"],
+desc:"Compact accessories for storage and travel."
+},
+
+{
+price:40,
+name:"Classic Rolling Pack",
+items:["Rolling tray","Papers & tips","Small metal grinder","Metal stash tin"],
+desc:"Classic mixed rolling accessories."
+},
+
+/* €45 */
+
+{
+price:45,
+name:"Urban Green Kit",
+items:["4-piece grinder","Medium tray","Storage jar","Papers & tips","Cleaning brush"],
+desc:"Balanced five-piece accessory collection."
+},
+
+{
+price:45,
+name:"Compact Premium Pack",
+items:["Premium compact grinder","Glass jar","Rolling tray","Paper bundle"],
+desc:"Compact premium everyday selection."
+},
+
+{
+price:45,
+name:"Night Out Kit",
+items:["Metal grinder","Stash tin","Rolling tray","Glass mouthpiece","Papers"],
+desc:"A practical mixed accessory set."
+},
+
+/* €50 */
+
+{
+price:50,
+name:"Black Edition Set",
+items:["Black 4-piece grinder","Large rolling tray","Glass storage jar","Papers & tips","Cleaning brush"],
+desc:"Black-themed accessory collection."
+},
+
+{
+price:50,
+name:"Glass & Metal Set",
+items:["Metal grinder","Glass jar","Glass pipe","Rolling tray","Papers"],
+desc:"Mixed glass and metal accessories."
+},
+
+{
+price:50,
+name:"Weekend Accessory Box",
+items:["Large grinder","Stash tin","Rolling tray","Papers","Tips","Cleaning brush"],
+desc:"Six-item weekend accessory box."
+},
+
+/* €55 */
+
+{
+price:55,
+name:"Premium Rolling Box",
+items:["Premium grinder","Large metal tray","Glass storage jar","Paper & tip bundle","Cleaning kit"],
+desc:"Premium rolling-focused collection."
+},
+
+{
+price:55,
+name:"Travel Deluxe",
+items:["4-piece grinder","Travel case","Storage jar","Mini tray","Papers","Cleaning brush"],
+desc:"Six-piece travel accessory bundle."
+},
+
+{
+price:55,
+name:"Classic Glass Collection",
+items:["Metal grinder","Glass pipe","Glass jar","Metal tray","Papers","Tips"],
+desc:"Glass-focused mixed collection."
+},
+
+/* €60 */
+
+{
+price:60,
+name:"Deluxe Grinder Box",
+items:["Premium 4-piece grinder","Large tray","Glass jar","Stash tin","Papers","Cleaning brush"],
+desc:"Deluxe grinder and storage package."
+},
+
+{
+price:60,
+name:"Premium Travel Collection",
+items:["Premium grinder","Travel case","Glass jar","Mini tray","Papers","Tips","Brush"],
+desc:"Seven-piece travel collection."
+},
+
+{
+price:60,
+name:"Home Accessory Set",
+items:["Large grinder","Large rolling tray","Glass storage jar","Ashtray","Papers","Tips"],
+desc:"Designed as a complete home accessory setup."
+},
+
+/* €65 */
+
+{
+price:65,
+name:"Gold Edition Bundle",
+items:["Gold-tone grinder","Large tray","Glass jar","Stash tin","Ashtray","Papers","Brush"],
+desc:"Seven-piece gold-inspired collection."
+},
+
+{
+price:65,
+name:"Collector Starter Box",
+items:["Premium grinder","Glass pipe","Glass jar","Metal tray","Stash tin","Papers","Tips"],
+desc:"A mixed collector-style accessory box."
+},
+
+{
+price:65,
+name:"Urban Deluxe Kit",
+items:["Large grinder","Large tray","Storage jar","Glass pipe","Ashtray","Papers","Cleaning kit"],
+desc:"Seven-piece deluxe urban collection."
+},
+
+/* €70 */
+
+{
+price:70,
+name:"Premium Black Box",
+items:["Premium black grinder","Large tray","Glass jar","Ashtray","Stash tin","Papers","Tips","Brush"],
+desc:"Eight-piece premium black collection."
+},
+
+{
+price:70,
+name:"Glass House Set",
+items:["Premium grinder","Glass pipe","Large glass jar","Glass ashtray","Metal tray","Papers","Tips"],
+desc:"Glass-heavy accessory collection."
+},
+
+{
+price:70,
+name:"Travel Pro Box",
+items:["Premium grinder","Travel case","Storage jar","Mini tray","Ashtray","Papers","Tips","Cleaning kit"],
+desc:"Eight-piece travel-focused set."
+},
+
+/* €75 */
+
+{
+price:75,
+name:"Gold & Glass Collection",
+items:["Gold grinder","Glass pipe","Glass jar","Large tray","Ashtray","Stash tin","Papers","Tips"],
+desc:"Premium gold and glass collection."
+},
+
+{
+price:75,
+name:"Deluxe Home Box",
+items:["Large premium grinder","Large tray","Glass jar","Ashtray","Storage tin","Papers","Tips","Brush"],
+desc:"Complete home accessory package."
+},
+
+{
+price:75,
+name:"Premium Rolling Station",
+items:["Premium grinder","Large tray","Paper & tips set","Glass jar","Ashtray","Stash tin","Cleaning kit"],
+desc:"A complete rolling station."
+},
+
+/* €80 */
+
+{
+price:80,
+name:"Black Premium Collection",
+items:["Premium black grinder","Large metal tray","Glass jar","Glass pipe","Ashtray","Stash tin","Papers","Tips","Brush"],
+desc:"Nine-piece premium collection."
+},
+
+{
+price:80,
+name:"Collector Glass Box",
+items:["Premium grinder","Large glass jar","Glass pipe","Glass ashtray","Large tray","Stash tin","Papers","Tips"],
+desc:"Premium glass-focused collection."
+},
+
+{
+price:80,
+name:"Travel Master Set",
+items:["Premium grinder","Travel case","Large jar","Mini tray","Glass pipe","Ashtray","Papers","Tips","Brush"],
+desc:"Nine-piece premium travel package."
+},
+
+/* €85 */
+
+{
+price:85,
+name:"Diamond Style Collection",
+items:["Premium designer-style grinder","Large tray","Glass jar","Glass pipe","Ashtray","Stash tin","Papers","Tips","Brush"],
+desc:"Nine-piece premium presentation set."
+},
+
+{
+price:85,
+name:"Ultimate Rolling Box",
+items:["Premium grinder","Large tray","Paper bundle","Tip collection","Glass jar","Ashtray","Stash tin","Brush","Cleaning kit"],
+desc:"Complete rolling accessory collection."
+},
+
+{
+price:85,
+name:"Home & Travel Combo",
+items:["Premium grinder","Large tray","Travel case","Glass jar","Glass pipe","Ashtray","Papers","Tips","Brush"],
+desc:"Mixed home and travel collection."
+},
+
+/* €90 */
+
+{
+price:90,
+name:"Premium Blackout Box",
+items:["Premium black grinder","Large tray","Glass jar","Glass pipe","Ashtray","Storage tin","Papers","Tips","Brush","Cleaning kit"],
+desc:"Ten-piece premium black collection."
+},
+
+{
+price:90,
+name:"Glass Deluxe Box",
+items:["Premium grinder","Large glass jar","Glass pipe","Glass ashtray","Large tray","Storage tin","Papers","Tips","Cleaning brush"],
+desc:"Premium glass accessory collection."
+},
+
+{
+price:90,
+name:"Travel Elite Collection",
+items:["Premium grinder","Premium travel case","Large storage jar","Mini tray","Glass pipe","Ashtray","Papers","Tips","Brush","Cleaning kit"],
+desc:"Ten-piece travel-focused premium set."
+},
+
+/* €95 */
+
+{
+price:95,
+name:"Gold Elite Box",
+items:["Premium gold grinder","Large tray","Glass jar","Glass pipe","Glass ashtray","Storage tin","Papers","Tips","Brush","Cleaning kit"],
+desc:"Premium ten-piece gold collection."
+},
+
+{
+price:95,
+name:"Complete Home Station",
+items:["Large premium grinder","Large tray","Large glass jar","Ashtray","Glass pipe","Storage tin","Paper bundle","Tips","Brush","Cleaning kit"],
+desc:"Complete home accessory station."
+},
+
+{
+price:95,
+name:"Collector Mix Box",
+items:["Premium grinder","Collector tray","Glass jar","Glass pipe","Ashtray","Stash tin","Travel case","Papers","Tips","Brush"],
+desc:"Ten-piece collector-style collection."
+},
+
+/* €100 */
+
+{
+price:100,
+name:"Luxury Black Collection",
+items:["Premium grinder","Large premium tray","Glass jar","Glass pipe","Premium ashtray","Storage tin","Travel case","Papers","Tips","Brush"],
+desc:"Luxury ten-piece accessory collection."
+},
+
+{
+price:100,
+name:"Ultimate Glass Set",
+items:["Premium grinder","Large glass jar","Glass pipe","Glass ashtray","Large tray","Storage tin","Travel case","Papers","Tips","Cleaning kit"],
+desc:"Ten-piece premium glass-focused set."
+},
+
+{
+price:100,
+name:"Executive Accessory Box",
+items:["Premium grinder","Large tray","Premium glass jar","Ashtray","Glass pipe","Travel case","Storage tin","Papers","Tips","Cleaning kit","Brush"],
+desc:"Eleven-piece premium collection."
+},
+
+/* €105 */
+
+{
+price:105,
+name:"Platinum Style Box",
+items:["Premium grinder","Large premium tray","Glass jar","Glass pipe","Premium ashtray","Travel case","Storage tin","Papers","Tips","Brush","Cleaning kit"],
+desc:"Eleven-piece premium collection."
+},
+
+{
+price:105,
+name:"Complete Collector Set",
+items:["Premium grinder","Collector tray","Large glass jar","Glass pipe","Glass ashtray","Travel case","Storage tin","Paper bundle","Tips","Brush","Cleaning kit"],
+desc:"Eleven-item collector collection."
+},
+
+{
+price:105,
+name:"Premium Lifestyle Box",
+items:["Premium grinder","Large tray","Glass jar","Glass pipe","Ashtray","Travel case","Stash tin","Paper bundle","Tips","Brush","Cleaning kit"],
+desc:"Premium lifestyle accessory selection."
+},
+
+/* €120 */
+
+{
+price:120,
+name:"Luxury Green Collection",
+items:["Premium grinder","Large premium tray","Large glass jar","Glass pipe","Premium ashtray","Travel case","Storage tin","Paper collection","Tips","Brush","Cleaning kit","Accessory case"],
+desc:"Twelve-piece luxury accessory collection."
+},
+
+{
+price:120,
+name:"Ultimate Collector Box",
+items:["Premium grinder","Collector tray","Large glass jar","Glass pipe","Glass ashtray","Premium storage tin","Travel case","Paper collection","Tips","Brush","Cleaning kit","Accessory case"],
+desc:"Twelve-piece collector-focused box."
+},
+
+{
+price:120,
+name:"Complete Premium Station",
+items:["Premium grinder","Large tray","Large glass jar","Glass pipe","Premium ashtray","Storage tin","Travel case","Papers","Tips","Brush","Cleaning kit","Accessory case"],
+desc:"Complete premium accessory station."
+},
+
+/* €125 */
+
+{
+price:125,
+name:"The GreenBox Premium",
+items:["Premium grinder","Premium large tray","Large glass jar","Premium glass pipe","Designer-style ashtray","Storage tin","Travel case","Paper collection","Tips","Brush","Cleaning kit","Accessory case"],
+desc:"Twelve-piece flagship accessory collection."
+},
+
+{
+price:125,
+name:"Ultimate Luxury Collection",
+items:["Premium grinder","Collector tray","Large glass jar","Premium glass pipe","Glass ashtray","Premium storage tin","Travel case","Paper collection","Tips","Brush","Cleaning kit","Accessory case","Storage pouch"],
+desc:"Thirteen-piece flagship collection."
+},
+
+{
+price:125,
+name:"Complete Elite Box",
+items:["Premium grinder","Large premium tray","Large glass jar","Premium glass pipe","Premium ashtray","Storage tin","Travel case","Paper collection","Tips","Brush","Cleaning kit","Accessory case","Storage pouch"],
+desc:"Thirteen-item elite accessory package."
+}
+
 ];
 
-let offers=[];
-let selectedOffer=null;
 
-prices.forEach(price=>{
+let selected=null;
 
-  offerTypes.forEach((type,index)=>{
 
-    offers.push({
-      id:price+"-"+(index+1),
-      price:price,
-      number:index+1,
-      name:type.name,
-      description:type.description,
-      items:type.items
-    });
+/* Make every image visually different */
+function imageFor(i){
+return images[i % images.length];
+}
 
-  });
+
+function render(list=offers){
+
+const box=document.getElementById("products");
+
+box.innerHTML="";
+
+list.forEach((o,i)=>{
+
+const card=document.createElement("article");
+
+card.className="card";
+
+card.innerHTML=`
+
+<div class="photo">
+
+<img
+src="${imageFor(i)}"
+alt="${o.name}"
+onerror="this.style.display='none'"
+>
+
+<div class="photoFallback">
+${o.name.toUpperCase()}
+</div>
+
+</div>
+
+<div class="body">
+
+<div class="offerNo">
+OFFER ${i+1} · €${o.price}
+</div>
+
+<h3>${o.name}</h3>
+
+<p class="description">${o.desc}</p>
+
+<ul class="contents">
+${o.items.slice(0,5).map(x=>`<li>${x}</li>`).join("")}
+${o.items.length>5?`<li>+ ${o.items.length-5} more items</li>`:""}
+</ul>
+
+<div class="priceRow">
+
+<div class="price">
+€${o.price}
+</div>
+
+<button class="view">
+VIEW OFFER
+</button>
+
+</div>
+
+</div>
+`;
+
+card.querySelector(".view").onclick=()=>{
+showOffer(o,i)
+};
+
+card.onclick=e=>{
+if(e.target.classList.contains("view"))return;
+showOffer(o,i)
+};
+
+box.appendChild(card);
 
 });
 
-function renderOffers(list=offers){
+}
 
-  const container=document.getElementById("products");
 
-  container.innerHTML="";
+function showOffer(o,i){
 
-  list.forEach(offer=>{
+selected={...o,index:i};
 
-    const card=document.createElement("article");
+document.getElementById("detailNo").textContent=
+"OFFER "+(i+1);
 
-    card.className="offer";
-    card.dataset.price=offer.price;
+document.getElementById("detailName").textContent=
+o.name;
 
-    card.innerHTML=`
+document.getElementById("detailPrice").textContent=
+"€"+o.price;
 
-      <div class="offerImage">
-        ACCESSORY<br>SET
-      </div>
+document.getElementById("detailDescription").textContent=
+o.desc;
 
-      <div class="offerBody">
+document.getElementById("detailImage").src=
+imageFor(i);
 
-        <div class="tag">
-          OFFER ${offer.number}
-        </div>
+const items=document.getElementById("detailItems");
 
-        <h3>${offer.name}</h3>
+items.innerHTML="";
 
-        <p>${offer.description}</p>
+o.items.forEach(item=>{
 
-        <div class="priceRow">
+const div=document.createElement("div");
 
-          <div class="price">
-            €${offer.price}
-          </div>
+div.className="detailItem";
 
-          <button class="view">
-            View Offer
-          </button>
+div.textContent="✓ "+item;
 
-        </div>
+items.appendChild(div);
 
-      </div>
-    `;
+});
 
-    card.querySelector(".view").onclick=()=>{
-      showOffer(offer);
-    };
+document.getElementById("detail").classList.add("show");
 
-    card.onclick=(event)=>{
-      if(!event.target.classList.contains("view")){
-        showOffer(offer);
-      }
-    };
+document.getElementById("count").textContent="1";
 
-    container.appendChild(card);
-
-  });
+document.getElementById("details").scrollIntoView({
+behavior:"smooth"
+});
 
 }
 
-function showOffer(offer){
 
-  selectedOffer=offer;
+function filterPrice(price,button){
 
-  document.getElementById("detailTag").textContent=
-    "OFFER "+offer.number;
+document.querySelectorAll(".filter")
+.forEach(x=>x.classList.remove("active"));
 
-  document.getElementById("detailName").textContent=
-    offer.name;
+button.classList.add("active");
 
-  document.getElementById("detailDescription").textContent=
-    offer.description;
+if(price==="all"){
+render(offers);
+}else{
+render(offers.filter(x=>x.price===price));
+}
 
-  document.getElementById("detailPrice").textContent=
-    "€"+offer.price;
-
-  const items=document.getElementById("detailItems");
-
-  items.innerHTML="";
-
-  offer.items.forEach(item=>{
-
-    const div=document.createElement("div");
-
-    div.className="item";
-
-    div.textContent="✓ "+item;
-
-    items.appendChild(div);
-
-  });
-
-  document.getElementById("detailBox")
-    .classList.add("show");
-
-  document.getElementById("requestCount")
-    .textContent="1";
-
-  document.getElementById("details")
-    .scrollIntoView({
-      behavior:"smooth",
-      block:"start"
-    });
+window.scrollTo({
+top:document.querySelector(".section").offsetTop-70,
+behavior:"smooth"
+});
 
 }
 
-function filterOffers(price,button){
-
-  document.querySelectorAll(".filter")
-    .forEach(b=>b.classList.remove("active"));
-
-  button.classList.add("active");
-
-  if(price==="all"){
-    renderOffers(offers);
-  }else{
-    renderOffers(
-      offers.filter(o=>o.price===price)
-    );
-  }
-
-  window.scrollTo({
-    top:document.querySelector(".products").offsetTop-80,
-    behavior:"smooth"
-  });
-
-}
 
 function openRequest(){
 
-  if(!selectedOffer){
-    alert("Please select an offer first.");
-    return;
-  }
+if(!selected){
 
-  document.getElementById("selectedOffer").textContent=
-    selectedOffer.name+
-    " — €"+
-    selectedOffer.price;
+alert("Please select an offer first.");
 
-  document.getElementById("modal")
-    .classList.add("show");
+return;
 
 }
+
+document.getElementById("selected").textContent=
+selected.name+" — €"+selected.price;
+
+document.getElementById("modal").classList.add("show");
+
+}
+
 
 function closeRequest(){
 
-  document.getElementById("modal")
-    .classList.remove("show");
+document.getElementById("modal").classList.remove("show");
 
 }
 
-function sendWhatsApp(){
 
-  const name=
-    document.getElementById("customerName").value.trim();
+function sendRequest(){
 
-  const phone=
-    document.getElementById("customerPhone").value.trim();
+const name=
+document.getElementById("name").value.trim();
 
-  if(!name || !phone){
+const phone=
+document.getElementById("phone").value.trim();
 
-    alert("Please enter your name and WhatsApp number.");
+if(!name||!phone){
 
-    return;
+alert("Please enter your name and WhatsApp number.");
 
-  }
+return;
 
-  if(!selectedOffer){
+}
 
-    alert("Please select an offer.");
+if(!selected){
 
-    return;
+alert("Please select an offer.");
 
-  }
+return;
 
-  const message=
+}
 
+const message=
 `NEW OFFER REQUEST
 
-Offer: ${selectedOffer.name}
-Offer number: ${selectedOffer.number}
-Price: €${selectedOffer.price}
+Offer: ${selected.name}
+Offer number: ${selected.index+1}
+Price: €${selected.price}
 
-Customer name: ${name}
+Customer: ${name}
 Customer WhatsApp: ${phone}
 
-Items:
-${selectedOffer.items.map(x=>"• "+x).join("\n")}
+CONTENTS:
+${selected.items.map(x=>"• "+x).join("\n")}
 
 Please send payment details to the customer.`;
 
-  const url=
-    "https://wa.me/"+
-    WHATSAPP_NUMBER+
-    "?text="+
-    encodeURIComponent(message);
-
-  window.open(url,"_blank");
+window.open(
+"https://wa.me/"+WHATSAPP_NUMBER+
+"?text="+encodeURIComponent(message),
+"_blank"
+);
 
 }
 
-renderOffers();
+
+render();
 
 </script>
 
