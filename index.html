@@ -1,168 +1,737 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>WhatsApp Manager</title>
+<title>GreenBox Accessories</title>
 
 <style>
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+*{box-sizing:border-box;margin:0;padding:0}
+
+:root{
+  --bg:#08100b;
+  --card:#111c14;
+  --card2:#16231a;
+  --green:#8cff55;
+  --green2:#b8ff91;
+  --text:#f5f8f4;
+  --muted:#9eaa9f;
+  --border:#26372a;
 }
 
-body {
-    font-family: Arial, Helvetica, sans-serif;
-    background: #f3f5f8;
-    color: #17202a;
-    min-height: 100vh;
+body{
+  background:
+    radial-gradient(circle at top,#18341d 0,#08100b 45%);
+  color:var(--text);
+  font-family:Arial,Helvetica,sans-serif;
 }
 
-/* LOGIN */
-#loginPage {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-    background: linear-gradient(135deg, #0b141a, #17252d);
+button{
+  font-family:inherit;
+  cursor:pointer;
 }
 
-.login-box {
-    width: 100%;
-    max-width: 420px;
-    background: white;
-    border-radius: 22px;
-    padding: 38px;
-    box-shadow: 0 25px 70px rgba(0,0,0,.3);
-    text-align: center;
+header{
+  position:sticky;
+  top:0;
+  z-index:20;
+  background:rgba(8,16,11,.94);
+  backdrop-filter:blur(15px);
+  border-bottom:1px solid var(--border);
 }
 
-.logo {
-    width: 70px;
-    height: 70px;
-    border-radius: 50%;
-    background: #25d366;
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto 20px;
-    font-size: 32px;
-    font-weight: bold;
+.nav{
+  max-width:1200px;
+  margin:auto;
+  padding:18px 20px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
 }
 
-.login-box h1 {
-    font-size: 27px;
-    margin-bottom: 8px;
+.logo{
+  font-size:25px;
+  font-weight:900;
 }
 
-.login-box p {
-    color: #667781;
-    margin-bottom: 25px;
+.logo span{
+  color:var(--green);
 }
 
-input {
-    width: 100%;
-    border: 1px solid #d7dde2;
-    border-radius: 12px;
-    padding: 15px;
-    font-size: 16px;
-    outline: none;
-    margin-bottom: 12px;
+.cartButton{
+  border:0;
+  background:var(--green);
+  color:#08100b;
+  padding:12px 18px;
+  border-radius:30px;
+  font-weight:900;
 }
 
-input:focus {
-    border-color: #25d366;
+.hero{
+  max-width:1200px;
+  margin:auto;
+  padding:75px 20px 45px;
+  text-align:center;
 }
 
-button {
-    border: 0;
-    cursor: pointer;
-    border-radius: 10px;
-    padding: 12px 18px;
-    font-weight: 700;
-    font-size: 14px;
-    transition: .2s;
+.hero small{
+  color:var(--green);
+  font-weight:bold;
+  letter-spacing:3px;
+  text-transform:uppercase;
 }
 
-button:hover {
-    transform: translateY(-1px);
+.hero h1{
+  font-size:clamp(45px,8vw,80px);
+  margin:15px 0;
+  line-height:.95;
 }
 
-.login-btn {
-    width: 100%;
-    background: #25d366;
-    color: white;
-    padding: 15px;
+.hero h1 span{
+  color:var(--green);
 }
 
-.login-btn:hover {
-    background: #1ebe5d;
+.hero p{
+  color:var(--muted);
+  max-width:650px;
+  margin:auto;
+  line-height:1.6;
+  font-size:17px;
 }
 
-.error {
-    color: #d93025;
-    font-size: 14px;
-    margin-top: 12px;
-    display: none;
+.prices{
+  max-width:1200px;
+  margin:auto;
+  padding:10px 20px 30px;
 }
 
-/* DASHBOARD */
-#dashboard {
-    display: none;
+.prices h2{
+  margin-bottom:15px;
 }
 
-header {
-    background: #0b141a;
-    color: white;
-    padding: 18px 25px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 15px;
-    position: sticky;
-    top: 0;
-    z-index: 10;
+.filters{
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
 }
 
-.header-left {
-    display: flex;
-    align-items: center;
-    gap: 13px;
+.filter{
+  background:var(--card);
+  border:1px solid var(--border);
+  color:white;
+  padding:9px 14px;
+  border-radius:30px;
 }
 
-.header-logo {
-    width: 42px;
-    height: 42px;
-    border-radius: 50%;
-    background: #25d366;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: bold;
+.filter.active,
+.filter:hover{
+  background:var(--green);
+  color:#08100b;
 }
 
-header h1 {
-    font-size: 20px;
+.products{
+  max-width:1200px;
+  margin:auto;
+  padding:10px 20px 80px;
 }
 
-.header-subtitle {
-    color: #aebac1;
-    font-size: 12px;
-    margin-top: 3px;
+.grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
 }
 
-.logout {
-    background: #26343c;
-    color: white;
+.offer{
+  background:linear-gradient(145deg,var(--card2),var(--card));
+  border:1px solid var(--border);
+  border-radius:22px;
+  overflow:hidden;
+  transition:.2s;
 }
 
-.logout:hover {
-    background: #34454e;
+.offer:hover{
+  transform:translateY(-4px);
+  border-color:var(--green);
 }
 
-.conta
-```
+.offerImage{
+  height:190px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  background:
+    radial-gradient(circle,#315b35,#142218 60%,#0b120d);
+  color:#c9e8c3;
+  font-weight:900;
+  letter-spacing:2px;
+}
+
+.offerBody{
+  padding:20px;
+}
+
+.tag{
+  color:var(--green);
+  font-size:11px;
+  font-weight:900;
+  letter-spacing:2px;
+}
+
+.offer h3{
+  margin:8px 0;
+  font-size:21px;
+}
+
+.offer p{
+  color:var(--muted);
+  line-height:1.5;
+  min-height:50px;
+}
+
+.priceRow{
+  margin-top:18px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+
+.price{
+  font-size:27px;
+  font-weight:900;
+}
+
+.view{
+  border:0;
+  background:var(--green);
+  color:#08100b;
+  padding:11px 15px;
+  border-radius:12px;
+  font-weight:900;
+}
+
+.details{
+  max-width:1200px;
+  margin:0 auto 80px;
+  padding:35px 20px;
+  scroll-margin-top:90px;
+}
+
+.detailBox{
+  display:none;
+  background:linear-gradient(145deg,#18291b,#0f1711);
+  border:1px solid var(--green);
+  border-radius:25px;
+  padding:30px;
+}
+
+.detailBox.show{
+  display:block;
+}
+
+.detailTop{
+  display:flex;
+  justify-content:space-between;
+  gap:20px;
+  align-items:start;
+}
+
+.detailTop h2{
+  font-size:35px;
+  margin:7px 0;
+}
+
+.detailPrice{
+  font-size:38px;
+  font-weight:900;
+  color:var(--green);
+}
+
+.items{
+  margin:25px 0;
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:10px;
+}
+
+.item{
+  background:#0d160f;
+  border:1px solid var(--border);
+  padding:14px;
+  border-radius:12px;
+}
+
+.request{
+  background:var(--green);
+  color:#08100b;
+  border:0;
+  padding:15px 22px;
+  border-radius:14px;
+  font-size:16px;
+  font-weight:900;
+}
+
+footer{
+  border-top:1px solid var(--border);
+  text-align:center;
+  padding:35px 20px;
+  color:var(--muted);
+}
+
+.modal{
+  display:none;
+  position:fixed;
+  z-index:50;
+  inset:0;
+  background:rgba(0,0,0,.78);
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+}
+
+.modal.show{
+  display:flex;
+}
+
+.modalBox{
+  width:100%;
+  max-width:500px;
+  background:#111c14;
+  border:1px solid var(--border);
+  border-radius:22px;
+  padding:25px;
+}
+
+.close{
+  float:right;
+  background:none;
+  color:white;
+  border:0;
+  font-size:25px;
+}
+
+.modalBox h2{
+  margin-bottom:8px;
+}
+
+.selected{
+  color:var(--green);
+  margin-bottom:20px;
+}
+
+input{
+  width:100%;
+  padding:14px;
+  margin:7px 0;
+  background:#09100b;
+  border:1px solid var(--border);
+  border-radius:10px;
+  color:white;
+  font-size:15px;
+}
+
+.send{
+  width:100%;
+  margin-top:12px;
+  padding:15px;
+  border:0;
+  border-radius:12px;
+  background:var(--green);
+  color:#08100b;
+  font-weight:900;
+  font-size:16px;
+}
+
+@media(max-width:850px){
+  .grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+}
+
+@media(max-width:600px){
+  .grid{
+    grid-template-columns:1fr;
+  }
+
+  .items{
+    grid-template-columns:1fr;
+  }
+
+  .detailTop{
+    flex-direction:column;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="nav">
+    <div class="logo">GREEN<span>BOX</span></div>
+    <button class="cartButton" onclick="openRequest()">
+      Request <span id="requestCount">0</span>
+    </button>
+  </div>
+</header>
+
+<section class="hero">
+  <small>Accessories only</small>
+  <h1>Choose Your<br><span>Offer</span></h1>
+  <p>
+    Premium legal smoking and lifestyle accessories in simple
+    fixed-price bundles.
+  </p>
+</section>
+
+<section class="prices">
+  <h2>Choose a price</h2>
+
+  <div class="filters">
+    <button class="filter active" onclick="filterOffers('all',this)">All</button>
+
+    <button class="filter" onclick="filterOffers(40,this)">€40</button>
+    <button class="filter" onclick="filterOffers(45,this)">€45</button>
+    <button class="filter" onclick="filterOffers(50,this)">€50</button>
+    <button class="filter" onclick="filterOffers(55,this)">€55</button>
+    <button class="filter" onclick="filterOffers(60,this)">€60</button>
+    <button class="filter" onclick="filterOffers(65,this)">€65</button>
+    <button class="filter" onclick="filterOffers(70,this)">€70</button>
+    <button class="filter" onclick="filterOffers(75,this)">€75</button>
+    <button class="filter" onclick="filterOffers(80,this)">€80</button>
+    <button class="filter" onclick="filterOffers(85,this)">€85</button>
+    <button class="filter" onclick="filterOffers(90,this)">€90</button>
+    <button class="filter" onclick="filterOffers(95,this)">€95</button>
+    <button class="filter" onclick="filterOffers(100,this)">€100</button>
+    <button class="filter" onclick="filterOffers(105,this)">€105</button>
+    <button class="filter" onclick="filterOffers(120,this)">€120</button>
+    <button class="filter" onclick="filterOffers(125,this)">€125</button>
+  </div>
+</section>
+
+<section class="products">
+  <div class="grid" id="products"></div>
+</section>
+
+<section class="details" id="details">
+  <div class="detailBox" id="detailBox">
+    <div class="detailTop">
+      <div>
+        <div class="tag" id="detailTag"></div>
+        <h2 id="detailName"></h2>
+        <p id="detailDescription" style="color:#9eaa9f"></p>
+      </div>
+
+      <div class="detailPrice" id="detailPrice"></div>
+    </div>
+
+    <div class="items" id="detailItems"></div>
+
+    <button class="request" onclick="openRequest()">
+      Request This Offer
+    </button>
+  </div>
+</section>
+
+<footer>
+  <p>GREENBOX ACCESSORIES</p>
+  <br>
+  <p>Legal accessories only. Customers are responsible for complying with applicable local laws and age requirements.</p>
+</footer>
+
+<div class="modal" id="modal">
+  <div class="modalBox">
+
+    <button class="close" onclick="closeRequest()">×</button>
+
+    <h2>Request Offer</h2>
+
+    <p class="selected" id="selectedOffer">
+      No offer selected
+    </p>
+
+    <input id="customerName" placeholder="Your name">
+
+    <input id="customerPhone" placeholder="WhatsApp number">
+
+    <button class="send" onclick="sendWhatsApp()">
+      Send Request on WhatsApp
+    </button>
+
+  </div>
+</div>
+
+<script>
+
+const WHATSAPP_NUMBER = "35600000000";
+
+const prices = [
+  40,45,50,55,60,65,70,75,
+  80,85,90,95,100,105,120,125
+];
+
+const offerTypes = [
+  {
+    name:"Classic Accessory Set",
+    description:"A balanced mixed accessory bundle.",
+    items:[
+      "Premium grinder",
+      "Rolling tray",
+      "Storage jar",
+      "Rolling papers",
+      "Cleaning accessory"
+    ]
+  },
+  {
+    name:"Travel Accessory Set",
+    description:"A compact selection designed for easy storage and travel.",
+    items:[
+      "Compact grinder",
+      "Travel storage case",
+      "Rolling tray",
+      "Papers",
+      "Cleaning tool"
+    ]
+  },
+  {
+    name:"Premium Accessory Set",
+    description:"A larger premium accessory bundle.",
+    items:[
+      "Premium grinder",
+      "Large storage jar",
+      "Premium rolling tray",
+      "Papers bundle",
+      "Accessory case",
+      "Cleaning accessories"
+    ]
+  }
+];
+
+let offers=[];
+let selectedOffer=null;
+
+prices.forEach(price=>{
+
+  offerTypes.forEach((type,index)=>{
+
+    offers.push({
+      id:price+"-"+(index+1),
+      price:price,
+      number:index+1,
+      name:type.name,
+      description:type.description,
+      items:type.items
+    });
+
+  });
+
+});
+
+function renderOffers(list=offers){
+
+  const container=document.getElementById("products");
+
+  container.innerHTML="";
+
+  list.forEach(offer=>{
+
+    const card=document.createElement("article");
+
+    card.className="offer";
+    card.dataset.price=offer.price;
+
+    card.innerHTML=`
+
+      <div class="offerImage">
+        ACCESSORY<br>SET
+      </div>
+
+      <div class="offerBody">
+
+        <div class="tag">
+          OFFER ${offer.number}
+        </div>
+
+        <h3>${offer.name}</h3>
+
+        <p>${offer.description}</p>
+
+        <div class="priceRow">
+
+          <div class="price">
+            €${offer.price}
+          </div>
+
+          <button class="view">
+            View Offer
+          </button>
+
+        </div>
+
+      </div>
+    `;
+
+    card.querySelector(".view").onclick=()=>{
+      showOffer(offer);
+    };
+
+    card.onclick=(event)=>{
+      if(!event.target.classList.contains("view")){
+        showOffer(offer);
+      }
+    };
+
+    container.appendChild(card);
+
+  });
+
+}
+
+function showOffer(offer){
+
+  selectedOffer=offer;
+
+  document.getElementById("detailTag").textContent=
+    "OFFER "+offer.number;
+
+  document.getElementById("detailName").textContent=
+    offer.name;
+
+  document.getElementById("detailDescription").textContent=
+    offer.description;
+
+  document.getElementById("detailPrice").textContent=
+    "€"+offer.price;
+
+  const items=document.getElementById("detailItems");
+
+  items.innerHTML="";
+
+  offer.items.forEach(item=>{
+
+    const div=document.createElement("div");
+
+    div.className="item";
+
+    div.textContent="✓ "+item;
+
+    items.appendChild(div);
+
+  });
+
+  document.getElementById("detailBox")
+    .classList.add("show");
+
+  document.getElementById("requestCount")
+    .textContent="1";
+
+  document.getElementById("details")
+    .scrollIntoView({
+      behavior:"smooth",
+      block:"start"
+    });
+
+}
+
+function filterOffers(price,button){
+
+  document.querySelectorAll(".filter")
+    .forEach(b=>b.classList.remove("active"));
+
+  button.classList.add("active");
+
+  if(price==="all"){
+    renderOffers(offers);
+  }else{
+    renderOffers(
+      offers.filter(o=>o.price===price)
+    );
+  }
+
+  window.scrollTo({
+    top:document.querySelector(".products").offsetTop-80,
+    behavior:"smooth"
+  });
+
+}
+
+function openRequest(){
+
+  if(!selectedOffer){
+    alert("Please select an offer first.");
+    return;
+  }
+
+  document.getElementById("selectedOffer").textContent=
+    selectedOffer.name+
+    " — €"+
+    selectedOffer.price;
+
+  document.getElementById("modal")
+    .classList.add("show");
+
+}
+
+function closeRequest(){
+
+  document.getElementById("modal")
+    .classList.remove("show");
+
+}
+
+function sendWhatsApp(){
+
+  const name=
+    document.getElementById("customerName").value.trim();
+
+  const phone=
+    document.getElementById("customerPhone").value.trim();
+
+  if(!name || !phone){
+
+    alert("Please enter your name and WhatsApp number.");
+
+    return;
+
+  }
+
+  if(!selectedOffer){
+
+    alert("Please select an offer.");
+
+    return;
+
+  }
+
+  const message=
+
+`NEW OFFER REQUEST
+
+Offer: ${selectedOffer.name}
+Offer number: ${selectedOffer.number}
+Price: €${selectedOffer.price}
+
+Customer name: ${name}
+Customer WhatsApp: ${phone}
+
+Items:
+${selectedOffer.items.map(x=>"• "+x).join("\n")}
+
+Please send payment details to the customer.`;
+
+  const url=
+    "https://wa.me/"+
+    WHATSAPP_NUMBER+
+    "?text="+
+    encodeURIComponent(message);
+
+  window.open(url,"_blank");
+
+}
+
+renderOffers();
+
+</script>
+
+</body>
+</html>
